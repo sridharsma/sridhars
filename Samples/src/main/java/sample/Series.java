@@ -5,24 +5,17 @@ import java.io.InputStreamReader;
 
 public class Series {
 
-	public static void main(String args[])
+	public String printSeries(int level)
 	{
-		int inputNum=0;
-		//get input from the user
-		try
+		String series=null;
+			
+		if(level <=0)
 		{
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
-			inputNum = Integer.parseInt(br.readLine());
-			System.out.println("input " + inputNum);
+			return null;
 		}
-		catch(IOException io)
-		{
-			System.out.println("Exception in reading.." + io);
-		}
-		
 		int seriesStart=0;
 		// find starting number
-		for(int i=inputNum-1; i>0; i--)
+		for(int i=level-1; i>0; i--)
 		{			
 			seriesStart = seriesStart+i;			
 		}
@@ -31,11 +24,27 @@ public class Series {
 		seriesStart = seriesStart+1;
 				
 		//print the series
-		for(int i=seriesStart; i<seriesStart+inputNum; i++)
-		{
-			System.out.print(i + "  ");
+		for(int i=seriesStart; i<seriesStart+level; i++)
+		{			
+			if(series==null)
+			{
+				series= i +"  ";
+			}
+			else
+			{
+				series= series+ i + "  ";
+			}
 		}
-							
+	
+		return series;
+		
+	}
+	
+	public static void main(String args[])
+	{
+		Series sr = new Series();
+		System.out.println(sr.printSeries(7));
+		
 	}
 	
 	
