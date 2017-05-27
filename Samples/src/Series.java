@@ -7,7 +7,7 @@ public class Series {
 	public static void main(String args[])
 	{
 		int inputNum=0;
-		//get input fro the user
+		//get input from the user
 		try
 		{
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
